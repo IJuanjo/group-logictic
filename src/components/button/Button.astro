@@ -1,0 +1,41 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { tv, type VariantProps } from "tailwind-variants";
+
+const button = tv({
+    base: "py-4 px-7 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 rounded-4xl",
+    variants: {
+        variant: {
+            primary:
+                "bg-brand-500 text-white hover:bg-brand-600 font-bold",
+            secondary: "bg-white text-brand-500",
+            tertiary:
+                "bg-transparent border border-brand-500/20 text-brand-grayscale-900",
+        },
+        size: {
+            small: "text-sm",
+            medium: "text-md",
+            large: "text-lg",
+        },
+    },
+    defaultVariants: {
+        variant: "primary",
+        size: "medium",
+    },
+});
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+    as: Tag;
+    disabled?: boolean;
+    className?: string;
+}> &
+    VariantProps<typeof button>;
+
+const { as: Tag = "button", className, ...props } = Astro.props;
+
+const resolveClass = button({ className, ...props });
+---
+
+<Tag {...props} class={resolveClass}>
+    <slot />
+</Tag>

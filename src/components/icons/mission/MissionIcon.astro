@@ -1,0 +1,29 @@
+---
+type Props = {
+  class?: string;
+  width?: number | string;
+  height?: number | string;
+};
+
+const { class: className, width = 44, height = 44, ...rest } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class={className}
+  width={width}
+  height={height}
+  viewBox="0 0 44 44"
+  fill="none"
+  {...rest}
+>
+  <rect x="2" y="2" width="40" height="40" rx="10" fill="#fff" stroke="#2E9E3C" stroke-width={2.5} />
+
+  <path
+    stroke="#2E9E3C"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width={1.667}
+    d="M14.5 14.5v13.333a1.666 1.666 0 0 0 1.667 1.667H29.5M27 26.167V19.5M22.833 26.167v-10M18.667 26.167v-2.5"
+  ></path>
+</svg>

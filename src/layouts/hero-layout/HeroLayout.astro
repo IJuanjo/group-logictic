@@ -1,0 +1,21 @@
+---
+interface Props {
+    imgSrc: string;
+    className?: string;
+}
+
+const { imgSrc, className } = Astro.props;
+---
+
+<div class={className + " relative overflow-hidden"}>
+    <img
+        class="absolute inset-0 w-full h-full object-cover object-center z-0"
+        src={imgSrc}
+        alt="banner-hero"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80"></div>
+
+    <div class="relative z-10  mx-auto px-6 py-20 flex items-center h-full">
+        <slot name="content" />
+    </div>
+</div>

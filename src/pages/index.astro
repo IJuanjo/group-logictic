@@ -1,0 +1,220 @@
+---
+import Button from "../components/button/Button.astro";
+import WhatsaappWhiteIcon from "../components/icons/whatsaapp-white/WhatsaappWhiteIcon.astro";
+import HeroLayout from "../layouts/hero-layout/HeroLayout.astro";
+import MainLayout from "../layouts/main-layout/MainLayout.astro";
+import { listCardBrand, productsBrand } from "../constant/data-source";
+import Card from "../components/card/Card.astro";
+import About from "../templates/card-section/CardSection.astro";
+import Footer from "../components/footer/Footer.astro";
+import { WHATSAPP_LINKS } from "../constant/links";
+---
+
+<MainLayout title="Group Logistic" description="A group logistic website">
+  <HeroLayout
+    imgSrc="/images/banner.webp"
+    className="max-w-[1440px] mx-auto relative h-[587px] flex items-center"
+  >
+    <div slot="content" class="flex-1 flex flex-col justify-start text-left">
+      <h1
+        class="text-white font-bold text-3xl md:text-6xl leading-tight max-w-3xl"
+      >
+        Herramientas, EPPs y servicios especializados para proyectos e
+        industria.
+      </h1>
+      <p class="text-white max-w-2xl mt-4">
+        Brindamos soluciones para todo de proyecto, has tu consulta aqui
+      </p>
+      <Button
+        as="a"
+        slot="cta"
+        className="mt-6 flex text-sm md:text-md items-center gap-3 w-fit"
+        target="_blank"
+        href={WHATSAPP_LINKS.GENERAL}
+        rel="noopener noreferrer"
+      >
+        <WhatsaappWhiteIcon className="scale-[1.3]" />
+        Cotizar por WhatsApp
+      </Button>
+    </div>
+  </HeroLayout>
+  <section
+    class="max-w-[1440px] mx-auto max-md:px-4 py-9 flex max-md:flex-col items-center justify-center gap-4 bg-[#F4FAF5]"
+  >
+    {
+      productsBrand.map((product) => (
+        <Button
+          as="a"
+          href={product.href}
+          variant="tertiary"
+          className="text-xs py-4 uppercase shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
+        >
+          {product.text}
+        </Button>
+      ))
+    }
+  </section>
+  <section
+    class="flex flex-wrap items-center max-w-[1440px] mx-auto justify-center gap-1 py-9"
+    id="marcas"
+  >
+    <img src="/images/brands/makita.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/bosh.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/dewalt.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/trupper.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/pretul.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/stanley.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/clute.webp" class="max-w-[260px] h-full" />
+    <img src="/images/brands/steelpro.webp" class="max-w-[260px] h-full" />
+  </section>
+
+  <section class="mb-[110px]" id="nosotros">
+    <About
+      label="La empresa"
+      image="/images/about.webp"
+      description="Organización especializada en la prestación de servicios generales y en el alquiler de máquinas y equipos para diversos sectores. Con un equipo de profesionales altamente calificados y marcas reconocidas, brindamos soluciones integrales que aportan mayor productividad y confianza a cada proyecto."
+      className="max-md:flex-col-reverse"
+    >
+      <h3
+        slot="title"
+        class="font-bold text-3xl md:text-5xl mb-4 flex flex-col gap-1"
+      >
+        Group Logistic
+        <span class="text-brand-500 block">CPP S.A.C.</span>
+      </h3>
+    </About>
+  </section>
+  <!-- -- -->
+  <div id="products"></div>
+  <section id="herramientas">
+    <About image="/images/herramientas.webp" className=" md:flex-row-reverse">
+      <h3
+        slot="title"
+        class="font-bold text-3xl md:text-5xl mb-4 flex flex-col gap-1"
+      >
+        Herramientas Profesionales para Todo Tipo de Proyecto
+        <span class="mt-2 h-2 w-[50%] bg-brand-500 rounded-4xl block"></span>
+      </h3>
+      <Button
+        as="a"
+        slot="footer"
+        variant="primary"
+        className="w-fit"
+        target="_blank"
+        href={WHATSAPP_LINKS.TOOLS}
+        rel="noopener noreferrer"
+      >
+        Solicitar información
+      </Button>
+    </About>
+  </section>
+  <!--  -->
+  <section id="eps">
+    <About image="/images/epp.webp">
+      <h3
+        slot="title"
+        class="font-bold text-3xl md:text-5xl mb-4 flex flex-col gap-1"
+      >
+        Equipos de Protección Personal <span class="text-brand-500">(EPP)</span>
+        <span class="mt-2 h-2 w-[15%] md:w-[30%] bg-brand-500 rounded-4xl block"
+        ></span>
+      </h3>
+      <Button
+        slot="footer"
+        variant="primary"
+        className="w-fit"
+        target="_blank"
+        as="a"
+        href={WHATSAPP_LINKS.PPE}
+        rel="noopener noreferrer"
+      >
+        Cotizar EPP
+      </Button>
+    </About>
+  </section>
+  <!--  -->
+  <section id="alquiler">
+    <About image="/images/alquiler.webp" className="md:flex-row-reverse">
+      <h3
+        slot="title"
+        class="font-bold text-3xl md:text-5xl mb-4 flex flex-col gap-1"
+      >
+        Alquiler de Equipos para Construcción e Industria
+        <span class="mt-2 h-2 w-[50%] bg-brand-500 rounded-4xl block"></span>
+      </h3>
+      <Button
+        slot="footer"
+        variant="primary"
+        className="w-fit"
+        target="_blank"
+        as="a"
+        href={WHATSAPP_LINKS.EQUIPMENT_RENTAL}
+        rel="noopener noreferrer"
+      >
+        Solicitar cotización
+      </Button>
+    </About>
+  </section>
+  <!--  -->
+  <section id="servicios" class="mb-[110px]">
+    <About image="/images/servicios.webp">
+      <h3
+        slot="title"
+        class="font-bold text-3xl md:text-5xl mb-4 flex flex-col gap-1"
+      >
+        Servicios Generales para Empresas e Industria
+        <span class="mt-2 h-2 w-[50%] bg-brand-500 rounded-4xl block"></span>
+      </h3>
+      <Button
+        slot="footer"
+        variant="primary"
+        className="w-fit"
+        target="_blank"
+        as="a"
+        href={WHATSAPP_LINKS.GENERAL_SERVICES}
+        rel="noopener noreferrer"
+      >
+        Consultar servicio</Button
+      >
+    </About>
+  </section>
+  <section class="max-w-[1440px] mx-auto my-9 max-md:px-4" id="mision">
+    <span class="text-brand-500 block text-xs uppercase text-center mb-3"
+      >Nuestra identidad</span
+    >
+    <h3 class="font-bold text-center text-3xl md:text-4xl mb-8">
+      Misión, Visión & Valores
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {
+        listCardBrand.map(({ title, description, icon: Icon }) => (
+          <Card title={title} description={description}>
+            <Icon slot="icon" />
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+  <section class="bg-brand-500 py-13" id="faq">
+    <div
+      class="max-w-[1440px] mx-auto flex max-md:flex-col max-md:px-4 items-center justify-between"
+    >
+      <div class="flex flex-col gap-3 text-white">
+        <h3 class="text-3xl font-bold">¿Tienes alguna duda?</h3>
+        <p class="text-sm">Escríbenos y te asesoramos sin compromiso.</p>
+      </div>
+      <Button
+        as="a"
+        variant="secondary"
+        className="mt-6 flex items-center gap-3 w-fit uppercase"
+        target="_blank"
+        href={WHATSAPP_LINKS.GENERAL}
+        rel="noopener noreferrer"
+      >
+        <WhatsaappWhiteIcon className="[&_path]:fill-brand-500 scale-[1.3]" />
+        Escribirnos por WhatsApp
+      </Button>
+    </div>
+  </section>
+  <Footer />
+</MainLayout>

@@ -1,0 +1,51 @@
+---
+import HamburgerIcon from "../icons/hambuger/HamburgerIcon.astro";
+import Logo from "../icons/logo/Logo.astro";
+
+interface HeaderProps {
+    items: Array<{ label: string; href: string }>;
+}
+const { items = [] } = Astro.props as HeaderProps;
+---
+
+<header class="flex flex-col lg:flex-row container-page py-3">
+    <input type="checkbox" id="menu-toggle" class="hidden peer" />
+    <div class="flex items-center justify-between gap-4 w-full">
+        <slot name="logo">
+            <Logo />
+        </slot>
+        <nav>
+            <ul class="gap-5 hidden lg:flex">
+                {
+                    items.map((item) => (
+                        <li class="font-bold">
+                            <a href={item.href}>{item.label}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+        <slot name="cta" />
+        <label
+            for="menu-toggle"
+            class="lg:hidden cursor-pointer p-2 rounded-md hover:bg-gray-100 transitions-colors"
+        >
+            <HamburgerIcon />
+        </label>
+    </div>
+    <div
+        class="lg:hidden opacity-0 max-h-0 pointer-events-none overflow-hidden transition-all duration-500 ease-out peer-checked:opacity-100 peer-checked:max-h-96 peer-checked:pointer-events-auto -translate-y-2 peer-checked:translate-y-0"
+    >
+        <ul
+            class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-6 py-4 text-center"
+        >
+            {
+                items.map((item) => (
+                    <li class="font-bold">
+                        <a href={item.href}>{item.label}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</header>

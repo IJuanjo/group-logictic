@@ -1,0 +1,42 @@
+---
+import "../../styles/global.css";
+import Header from "../../components/header/Header.astro";
+import { NAV_ITEMS } from "../../constant/site";
+import Button from "../../components/button/Button.astro";
+import WhatsaappWhiteIcon from "../../components/icons/whatsaapp-white/WhatsaappWhiteIcon.astro";
+import { WHATSAPP_LINKS } from "../../constant/links";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header items={NAV_ITEMS}>
+      <Button
+        as="a"
+        slot="cta"
+        className="hidden lg:flex items-center gap-3 uppercase"
+        target="_blank"
+        href={WHATSAPP_LINKS.GENERAL}
+        rel="noopener noreferrer"
+      >
+        <WhatsaappWhiteIcon />
+        Contáctanos
+      </Button>
+    </Header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

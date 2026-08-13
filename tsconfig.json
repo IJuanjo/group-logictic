@@ -1,0 +1,19 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "jsxImportSource": "astro",
+  },
+  "include": ["src", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
