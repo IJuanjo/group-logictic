@@ -1,5 +1,6 @@
 export const WHATSAPP_LINKS = {
-    GENERAL: "https://api.whatsapp.com/send/?phone=+51990523916&text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios.",
+    CONTACT_MAIN: "https://api.whatsapp.com/send/?phone=+51990523916&text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios.",
+    CONTACT_SECUNDARY: "https://api.whatsapp.com/send/?phone=+51957160003&text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios.",
 
     TOOLS:
         "https://api.whatsapp.com/send/?phone=+51990523916&text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20las%20herramientas%20disponibles.",

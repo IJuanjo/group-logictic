@@ -1,0 +1,87 @@
+---
+import { WHATSAPP_LINKS } from "../../constant/links";
+import Button from "../button/Button.astro";
+import Logo from "../icons/logo/Logo.astro";
+import WhatsaappWhiteIcon from "../icons/whatsaapp-white/WhatsaappWhiteIcon.astro";
+---
+
+<div class="fixed bottom-12 right-8 flex flex-col items-end">
+    <input id="dialog" type="checkbox" class="hidden peer" />
+
+    <div
+        class="invisible pointer-events-none opacity-0 fixed overflow-hidden bottom-3 relative translate-y-[50px] transition-all duration-200 ease-in
+    peer-checked:visible peer-checked:pointer-events-auto
+    peer-checked:opacity-100 peer-checked:translate-y-0
+    will-change-[transform,visibility,opacity]
+    rounded-[8px] shadow-md md:w-[351px]"
+    >
+        <div class="z-[99] relative bg-white">
+            <div
+                class="bg-[#2db742] p-6 md:p-4 flex items-center gap-5 justify-center"
+            >
+                <WhatsaappWhiteIcon className="scale-[2]" />
+                <div class="text-white flex flex-col gap-1">
+                    <p class="text-md">Iniciar una conversación</p>
+                    <span class="block text-xs"
+                        >Hola escríbenos a nuestro WhatsApp</span
+                    >
+                </div>
+            </div>
+            <div class="p-4">
+                <span class="text-[#a5abb7] text-xs"
+                    >Respondemos de inmediato</span
+                >
+                <div class="flex flex-col gap-1">
+                    <Button
+                        as="a"
+                        target="_blank"
+                        href={WHATSAPP_LINKS.CONTACT_MAIN}
+                        class="flex gap-4 items-center justify-between p-3 bg-[#f5f7f9] rounded-[8px]"
+                    >
+                        <div class="bg-[#f5f7f9] flex gap-2">
+                            <img src="/images/logo.webp" class="w-[35px]" />
+                            <div>
+                                <p class="text-sm text-[#363c47] font-normal">
+                                    Atención al cliente
+                                </p>
+                                <span class="block text-xs text-[#a5abb7]"
+                                    >Atención al cliente</span
+                                >
+                            </div>
+                        </div>
+                        <WhatsaappWhiteIcon
+                            className="[&_path]:fill-brand-500 scale-[1.5]"
+                        />
+                    </Button>
+                    <Button
+                        as="a"
+                        target="_blank"
+                        href={WHATSAPP_LINKS.CONTACT_SECUNDARY}
+                        class="flex gap-4 items-center justify-between bg-[#f5f7f9] p-3 rounded-[8px]"
+                    >
+                        <div class="bg-[#f5f7f9] flex gap-2">
+                            <img src="/images/logo.webp" class="w-[35px]" />
+                            <div>
+                                <p class="text-sm text-[#363c47] font-normal">
+                                    Atención al cliente
+                                </p>
+                                <span class="block text-xs text-[#a5abb7]"
+                                    >Atención al cliente</span
+                                >
+                            </div>
+                        </div>
+                        <WhatsaappWhiteIcon
+                            className="[&_path]:fill-brand-500 scale-[1.5]"
+                        />
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label
+        for="dialog"
+        class="bg-brand-500 block w-[56px] h-[56px] rounded-full flex items-center justify-center cursor-pointer"
+    >
+        <WhatsaappWhiteIcon className="scale-[2]" />
+    </label>
+</div>
