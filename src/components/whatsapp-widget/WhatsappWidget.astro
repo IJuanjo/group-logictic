@@ -1,7 +1,6 @@
 ---
 import { WHATSAPP_LINKS } from "../../constant/links";
 import Button from "../button/Button.astro";
-import Logo from "../icons/logo/Logo.astro";
 import WhatsaappWhiteIcon from "../icons/whatsaapp-white/WhatsaappWhiteIcon.astro";
 ---
 
@@ -9,11 +8,25 @@ import WhatsaappWhiteIcon from "../icons/whatsaapp-white/WhatsaappWhiteIcon.astr
     <input id="dialog" type="checkbox" class="hidden peer" />
 
     <div
-        class="invisible pointer-events-none opacity-0 fixed overflow-hidden bottom-3 relative translate-y-[50px] transition-all duration-200 ease-in
-    peer-checked:visible peer-checked:pointer-events-auto
-    peer-checked:opacity-100 peer-checked:translate-y-0
-    will-change-[transform,visibility,opacity]
-    rounded-[8px] shadow-md md:w-[351px]"
+        class="invisible
+            pointer-events-none
+            opacity-0
+            absolute
+            bottom-[68px]
+            right-0
+            w-[303px]
+            overflow-hidden
+            translate-y-[20px]
+            transition-all
+            duration-200
+            ease-in
+            peer-checked:visible
+            peer-checked:pointer-events-auto
+            peer-checked:opacity-100
+            peer-checked:translate-y-0
+            rounded-[8px]
+            shadow-md
+            md:w-[351px]"
     >
         <div class="bg-white">
             <div
